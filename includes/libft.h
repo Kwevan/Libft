@@ -6,7 +6,7 @@
 /*   By: kgouacid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:01:27 by kgouacid          #+#    #+#             */
-/*   Updated: 2019/11/15 12:58:47 by kgouacid         ###   ########.fr       */
+/*   Updated: 2020/09/18 18:06:25 by kgouacid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,17 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(const char *s1, const char *set);
 char			**ft_split(const char *s, char c);
+char			**ft_split2(char *s, char *c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+
+void			*ft_realloc(void *ptr, size_t size, size_t new_size);
+char			*ft_strnew(size_t size);
+void			*ft_memalloc(size_t size);
+
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 int				ft_lstsize(t_list *lst);
@@ -67,4 +73,15 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 				void (*del)(void *));
+int				ft_strcmp(char *s1, char *s2);
+
+int				ft_strlen2(char **s);
+void			ft_putstr2(char **s);
+void			ft_putstr_fd2(char **s, int fd);
+int				ft_index(char *s, char c);
+
+char			*ft_strndup(char *s, long len);
+int				ft_strendswithc(char *s, char c);
+char			*ft_strjoin2(char const *s1, const char *c, char const *s2);
+void			ft_freestrarr(char **s);
 #endif

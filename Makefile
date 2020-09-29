@@ -1,6 +1,10 @@
 NAME = libft.a
 
-SRC =  ft_atoi.c\
+SRC_FOLDER = srcs
+
+INCLUDE_DIR = includes
+
+SRC_FILES =  ft_atoi.c\
                 ft_split.c\
                 ft_bzero.c\
                 ft_strchr.c\
@@ -33,17 +37,31 @@ SRC =  ft_atoi.c\
                 ft_tolower.c\
                 ft_putstr_fd.c\
                 ft_toupper.c\
-                ft_strrchr.c
+                ft_strrchr.c\
+				ft_lstnew.c\
+				ft_lstadd_front.c\
+				ft_lstsize.c\
+				ft_lstlast.c\
+				ft_lstadd_back.c\
+				ft_lstdelone.c\
+				ft_lstclear.c\
+				ft_lstiter.c\
+				ft_lstmap.c\
+				ft_strnew.c\
+				ft_memalloc.c\
+				ft_realloc.c\
+				ft_split2.c\
+				ft_strcmp.c\
+				ft_strndup.c\
+				divergents/ft_strlen2.c\
+				divergents/ft_putstr2.c\
+				divergents/ft_putstr_fd2.c\
+				divergents/ft_index.c\
+				divergents/ft_strendswithc.c\
+				divergents/ft_strjoin2.c\
+				divergents/ft_freestrarr.c\
 
-SRC_BONUS = ft_lstnew.c\
-			ft_lstadd_front.c\
-			ft_lstsize.c\
-			ft_lstlast.c\
-			ft_lstadd_back.c\
-			ft_lstdelone.c\
-			ft_lstclear.c\
-			ft_lstiter.c\
-			ft_lstmap.c\
+SRC = $(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -51,17 +69,13 @@ CC = gcc
 
 SRC_O = $(SRC:.c=.o)
 
-SRC_BONUS_O = $(SRC_BONUS:.c=.o)
-
 all: $(NAME)
 
 $(NAME): $(SRC_O)
-		$(CC) $(FLAGS) -c $(SRC)
 		ar rcs $(NAME) $(SRC_O)
 
-bonus : $(SRC_BONUS_O)
-		$(CC) $(FLAGS) -c $(SRC) $(SRC_BONUS)
-		ar rcs $(NAME) $(SRC$_O) $(SRC_BONUS_O)
+%.o: %.c
+	$(CC) ${FLAGS} -I ${INCLUDE_DIR} -o $@ -c $<
 
 clean:
 	rm -rf  $(SRC_O)
